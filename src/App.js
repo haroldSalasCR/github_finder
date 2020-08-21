@@ -43,10 +43,10 @@ class App extends Component {
     this.setState({ loading: true });
 
     const resp = await axios.get(
-      `https://api.github.com/search/users/${username}&client_id=${process.env.REACT_APP_CLIENT_ID}&client_secret=${process.env.REACT_APP_CLIENT_SECRET}`
+      `https://api.github.com/users/${username}?client_id=${process.env.REACT_APP_CLIENT_ID}&client_secret=${process.env.REACT_APP_CLIENT_SECRET}`
     );
 
-    this.setState({ users: resp.data, loading: false });
+    this.setState({ user: resp.data, loading: false });
   };
   // Cleaning the list of users
   clearUsers = () => this.setState({ users: [], loading: false });
